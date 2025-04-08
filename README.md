@@ -1,2 +1,2 @@
 # Blockface
-Have a Face on the Blockchain using the Decentralized social media platform #DeSo using your Crypto wallet.
+Allowing Crypto wallets to CONNECT as a next step towards Decentralized social Blockchain .#DeSo
