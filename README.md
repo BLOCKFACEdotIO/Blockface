@@ -1,2 +1,2 @@
 # Blockface
-I am posting content using my Crypto wallet on blockchain using Blockface.
+Using my Crypto wallet on blockchain to post Tweet and much more.
