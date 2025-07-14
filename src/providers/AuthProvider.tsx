@@ -92,7 +92,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     queryFn: async () => await getAllPosts(),
   });
 
-  const SOLANA_RPC_URL = "https://go.getblock.io/4136d34f90a6488b84214ae26f0ed5f4";
+  const SOLANA_RPC_URL =
+    "https://go.getblock.io/4136d34f90a6488b84214ae26f0ed5f4";
 
   const fetchSolanaBalances = async (
     walletAddress: string,
@@ -349,6 +350,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (allPostData) {
+      // const SPECIFIC_POST_ID = "55"; // replace with your specific post ID
+
+      // const sortedPosts = [...allPostData.result].sort((a, b) => {
+      //   if (a._id === SPECIFIC_POST_ID) return -1;
+      //   if (b._id === SPECIFIC_POST_ID) return 1;
+      //   return (
+      //     new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      //   );
+      // });
+
       const sortedPosts = [...allPostData.result].sort(
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -375,7 +386,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const updatedUsers = usersData?.users?.rows.map((user: any) => ({
         ...user,
         followerCount: Math.floor(Math.random() * 1000),
-        followingCount: Math.floor(Math.random() * 1000)
+        followingCount: Math.floor(Math.random() * 1000),
       }));
 
       setLoading(false);
