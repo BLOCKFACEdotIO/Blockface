@@ -279,9 +279,9 @@ export default function SignupLoginModal({
             <TabsTrigger value="signin" className="cursor-pointer">
               Signin
             </TabsTrigger>
-            <TabsTrigger value="signup" className="cursor-pointer">
+            {/* <TabsTrigger value="signup" className="cursor-pointer">
               Signup
-            </TabsTrigger>
+            </TabsTrigger> */}
           </TabsList>
         )}
         <TabsContent value="signin">
