@@ -35,8 +35,11 @@ export default function ContentCard({ post }: any) {
   }, [post?.description]);
 
   const images = post?.files?.filter((f: any) => f?.image) || [];
-  const descriptionText = descriptionHTML.replace(/<[^>]+>/g, " ").trim();
-
+  const descriptionText = descriptionHTML
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>/gi, "\n")
+    .replace(/<[^>]+>/g, "")
+    .trim();
   const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLImageElement;
     if (target.tagName === "IMG" && target.src) {
@@ -61,7 +64,7 @@ export default function ContentCard({ post }: any) {
       {descriptionText && (
         <div
           className={cn(
-            "prose prose-sm max-w-none dark:prose-invert text-[#2f2f2f] dark:text-[#A3ADB9] break-all"
+            "prose prose-sm max-w-none dark:prose-invert text-[#2f2f2f] dark:text-[#A3ADB9] break-all whitespace-pre-wrap"
             // "[&_img]:max-w-[500px] [&_img]:max-h-[500px] [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
           )}
           // dangerouslySetInnerHTML={{ __html: descriptionHTML }}

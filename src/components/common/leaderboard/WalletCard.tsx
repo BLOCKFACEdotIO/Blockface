@@ -80,7 +80,7 @@ export default function WalletCard({ item, idx }: any) {
           <AvatarImage
             width={258}
             height={144}
-            className="h-36 w-full object-fill"
+            className="h-36 w-full object-cover object-center"
             src={item?.avatar || defaultUserProfile}
           />
           <AvatarFallback>
