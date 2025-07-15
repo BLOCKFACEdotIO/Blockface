@@ -86,9 +86,8 @@ export default function PostHeader({ post }: any) {
   };
 
   return (
-    <div className="flex justify-between items-center gap-4 flex-wrap">
+    <div className="flex justify-between items-start gap-4">
       <div className="flex items-center gap-2">
-        {/* {url.includes("post") && ( */}
         <Avatar className="size-14">
           <AvatarImage
             width={100}
@@ -100,39 +99,12 @@ export default function PostHeader({ post }: any) {
             <DotsLoader size="w-2 h-2" />
           </AvatarFallback>
         </Avatar>
-        {/* )}  */}
         <div className="flex flex-col gap-1">
           <div
-            className="hover:underline dark:text-[#DDE5EE] font-semibold flex items-center gap-2 cursor-pointer"
+            className="hover:underline dark:text-[#DDE5EE] font-semibold flex items-center gap-2 cursor-pointer flex-wrap break-all"
             onClick={() => router.replace(`/${post?.userInfo?.id}`)}
           >
             {post?.userInfo?.username}{" "}
-            {post?.userInfo?.verifiedIcon && (
-              <img
-                alt="Verified Token"
-                data-state="closed"
-                loading="lazy"
-                width="16"
-                height="16"
-                decoding="async"
-                data-nimg="1"
-                className="max-h-max"
-                src="/verified.gif"
-              />
-            )}
-            {post?.user?.whaleIcon && (
-              <img
-                alt="whale"
-                data-state="closed"
-                loading="lazy"
-                width="24"
-                height="24"
-                decoding="async"
-                data-nimg="1"
-                className="inline-flex translate-y-[-10%]"
-                src="/cropped-whale-small.webp"
-              />
-            )}
             <div className="text-sm text-shadow-[#17a34a] dark:text-[#00ff00] text-[#00ff00] font-normal">
               $
               {post?.userInfo?.assets?.totalBalanceUSD
@@ -147,7 +119,7 @@ export default function PostHeader({ post }: any) {
               {post.userInfo.id === 91 ? "📌" : ""}
             </div>
           </div>
-          <div className="text-sm dark:text-[#8C9FB7A0] text-[#999999]">
+          <div className="text-sm dark:text-[#8C9FB7A0] text-[#999999] break-all">
             @{post?.userInfo?.username} .{" "}
             <ToolTip content={moment(post?.createdAt).format("MMM-DD-YYYY")}>
               {" "}
@@ -158,15 +130,6 @@ export default function PostHeader({ post }: any) {
       </div>
       <div className="flex items-center gap-2 justify-between">
         <FollowBtn handleSubmit={handleFollow} />
-        {/* <ListTodo
-          className={`text-xs dark:hover:text-[#59B4FF] hover:text-[#59B4FF] dark:text-[#8C9FB7A0] text-[#999999] cursor-pointer`}
-          size={20}
-        />
-        <div
-          className={`font-medium text-xs text-[#59B4FF] hover:underline cursor-pointer`}
-        >
-          Subscribe
-        </div> */}
         {String(post?.userInfo?.id) === String(user?.id) && (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -195,16 +158,6 @@ export default function PostHeader({ post }: any) {
             </DropdownMenuContent>
           </DropdownMenu>
         )}
-
-        {/* {url.includes("post") && (
-          <div className="flex flex-col justify-center items-center gap-1">
-            <ThumbsUp className="text-[#8c9fb7a0] cursor-pointer" size={16} />
-            <div className="text-[#2f2f2f] dark:text-[#a3adb9] text-sm">
-              {post?.userInfo?.postValue ?? 0}
-            </div>
-            <ThumbsDown className="text-[#8c9fb7a0] cursor-pointer" size={16} />
-          </div>
-        )} */}
       </div>
       <CreatePostModal
         open={postModal}

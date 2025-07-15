@@ -244,13 +244,34 @@ export function RichTextEditor({
     const files = e.target.files;
     if (!files || !editor) return;
 
-    const maxSizeInBytes = 2 * 1024 * 1024; // 2 MB
+    const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
+    const validImageTypes = [
+      "image/png",
+      "image/jpeg",
+      "image/jpg",
+      "image/gif",
+      "image/webp",
+    ];
     const validFiles = Array.from(files).filter(
-      (file) => file.type.startsWith("image/") && file.size <= maxSizeInBytes
+      (file) =>
+        validImageTypes.includes(file.type) && file.size <= maxSizeInBytes
     );
 
-    if (validFiles.length === 0) {
-      toast.error("Please select valid image files");
+    if (files.length > 0 && validFiles.length === 0) {
+      const hasInvalidType = Array.from(files).some(
+        (file) => !validImageTypes.includes(file.type)
+      );
+      const hasOversizedFile = Array.from(files).some(
+        (file) => file.size > maxSizeInBytes
+      );
+
+      if (hasInvalidType && hasOversizedFile) {
+        toast.error("Please select image files under 5MB");
+      } else if (hasInvalidType) {
+        toast.error("Please select valid image files (PNG, JPEG, JPG, GIF, WEBP)");
+      } else if (hasOversizedFile) {
+        toast.error("Selected file(s) exceed the 5MB size limit");
+      }
       return;
     }
 
