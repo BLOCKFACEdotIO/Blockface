@@ -123,8 +123,8 @@ export default function LeaderboardPage() {
                     </Avatar>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="text-[#000000] dark:text-[#FFFFFF] text-xl max-sm:text-xs max-md:text-base font-bold truncate w-[100px] max-sm:w-[50px]">
-                      {item?.name}
+                    <div className="text-[#000000] dark:text-[#FFFFFF] text-xl max-sm:text-xs max-md:text-base font-bold truncate w-[100px] max-sm:w-[50px] capitalize">
+                      {item?.username}
                     </div>
                     <span className="text-xs dark:text-[#8c9fb7a0] text-[#999999]">
                       {sliceMethod(item?.wallet_address)}
