@@ -128,10 +128,10 @@ export default function WalletCard({ item, idx }: any) {
         </div>
         <div className="flex items-center justify-between mt-6 gap-4">
           <div className="text-xs text-[#747474]">
-            {item?.followerCount ?? "0"} followers
+            {item?.followers?.length ?? "0"} followers
           </div>
           <div className="text-xs text-[#747474]">
-            {item?.followingCount ?? "0"} following
+            {item?.followings?.length ?? "0"} following
           </div>
         </div>
       </div>
