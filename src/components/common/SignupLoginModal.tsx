@@ -344,14 +344,14 @@ export default function SignupLoginModal({
                 )}
               </Label>
             )}
-            {!forgot && (
+            {/* {!forgot && (
               <div
                 className="flex justify-end cursor-pointer"
                 onClick={() => setForgot(true)}
               >
                 Forgot Password?
               </div>
-            )}
+            )} */}
           </div>
         </TabsContent>
         <TabsContent value="signup">
