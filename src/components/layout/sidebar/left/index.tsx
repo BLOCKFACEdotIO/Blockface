@@ -190,9 +190,15 @@ export default function LeftSidebar() {
               </div>
             )}
             <div className="flex flex-wrap justify-center gap-4 flex-col w-full">
-              <BuyTokenBtn clasName="min-w-full">
-                <BuyTokenIcon /> Buy $BLOCK
-              </BuyTokenBtn>
+              <Link
+                href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                target="_blank"
+              >
+                <BuyTokenBtn clasName="min-w-full">
+                  <BuyTokenIcon />
+                  Buy $BLOCK
+                </BuyTokenBtn>
+              </Link>
               <BuyTokenBtn
                 clasName="min-w-full"
                 onClick={() => setIsOpen(!isOpen)}

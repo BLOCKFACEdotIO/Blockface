@@ -95,7 +95,12 @@ export default function Market() {
             </div> */}
             <div className="mt-2 flex items-center justify-center gap-2 px-4">
               <BuyTokenBtn clasName="!h-fit py-1 text-xs !min-w-fit">
-                Buy $BLOCK
+                <Link
+                  href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                  target="_blank"
+                >
+                  Buy $BLOCK
+                </Link>
               </BuyTokenBtn>
               {/* <BuyTokenBtn clasName="!h-fit py-1 text-xs !min-w-fit">
                 Buy $DESO
@@ -117,7 +122,12 @@ export default function Market() {
             <div className="flex flex-wrap justify-center gap-4 w-full">
               <Link target="_blank" href="https://openfund.com/trade/FOCUS">
                 <BuyTokenBtn>
-                  <BuyTokenIcon /> Buy $BLOCK
+                  <Link
+                    href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                    target="_blank"
+                  >
+                    <BuyTokenIcon /> Buy $BLOCK
+                  </Link>
                 </BuyTokenBtn>
               </Link>
             </div>

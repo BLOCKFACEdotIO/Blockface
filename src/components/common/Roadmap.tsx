@@ -48,9 +48,9 @@ export default function Roadmap() {
         <div className=" min-w-[768px]">
           <div className="flex items-center justify-center">
             <div className="w-full relative">
-              {/* <div className="absolute top-[22%] left-0 right-0 h-[1px] bg-green-400 z-0" /> */}
+              <div className="absolute top-[21%] left-[12%] right-[12%] h-[1px] bg-[#32BD91] z-0" />
               <div className="flex justify-around items-end">
-                {quarters.map((quarter, index) => (
+                {quarters.map((quarter) => (
                   <div
                     key={quarter.id}
                     className="flex flex-col items-center relative"
@@ -64,13 +64,7 @@ export default function Roadmap() {
                         className=""
                       />
                     )}
-                    {/* {index < quarters.length - 1 && (
-                      <div className="flex-1 h-[1px] bg-green-400"></div>
-                    )} */}
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    {/* {index > 0 && (
-                      <div className="flex-1 h-[1px] bg-green-400"></div>
-                    )} */}
+                    <div className="w-3 h-3 bg-[#32BD91] rounded-full"></div>
                   </div>
                 ))}
               </div>

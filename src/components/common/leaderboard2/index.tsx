@@ -2,6 +2,7 @@ import React from "react";
 import FillButton from "../FillButton";
 import SocialHandle from "../SocialHandle";
 import Roadmap from "../Roadmap";
+import Link from "next/link";
 
 export default function Leaderboard2() {
   return (
@@ -17,7 +18,12 @@ export default function Leaderboard2() {
 
         <div className="flex flex-col justify-center items-center mt-8 gap-5">
           <FillButton className="pump-glow">
-            BUY $BLOCK
+            <Link
+              href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+              target="_blank"
+            >
+              BUY $BLOCK
+            </Link>
           </FillButton>
           <SocialHandle />
         </div>
