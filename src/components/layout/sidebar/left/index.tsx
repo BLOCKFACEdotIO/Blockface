@@ -6,6 +6,7 @@ import CreatePostModal from "@/components/common/CreatePostModal";
 import FillButton from "@/components/common/FillButton";
 import ShareModal from "@/components/common/ShareModal";
 import SocialHandle from "@/components/common/SocialHandle";
+import TokenLaunchedModal from "@/components/common/TokenLaunchedModal";
 import UserInfoCard from "@/components/common/UserInfoCard";
 import { BuyTokenIcon } from "@/components/svg/buy-token";
 import { SettingsIcon } from "@/components/svg/sidebar/settings";
@@ -35,6 +36,7 @@ export default function LeftSidebar() {
   const [walletModal, setWalletModal] = useState<boolean>(false);
   const [postModal, setPostModal] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isTokenLaunch, setIsTokenLaunch] = useState<boolean>(false);
 
   const handleWalletModal = () => {
     setWalletModal(!walletModal);
@@ -61,19 +63,19 @@ export default function LeftSidebar() {
       title: "Wallet",
       url: "/wallet",
       icon: "/wallet-icon.svg",
-      type: "Please Login!",
+      modal: "open",
     },
     {
       title: "Profile",
       url: `/${user?.id}`,
       icon: "/profile-icon.svg",
-      type: "Please Login!",
+      modal: "open",
     },
     {
       title: "Settings",
       url: `/settings`,
       icon: SettingsIcon,
-      type: "Please Login!",
+      modal: "open",
     },
   ];
 
@@ -139,9 +141,11 @@ export default function LeftSidebar() {
                   </span>
                 </SidebarMenuButton>
               </Link> */}
-              {(!user && item.type) || item.url.includes("#") ? (
+              {(!user && item.modal) || item.url.includes("#") ? (
                 <div
-                  onClick={() => toast(item?.type ?? "Coming Soon!")}
+                  onClick={() => {
+                    item.modal ? setIsTokenLaunch(true) : toast("Coming Soon!");
+                  }}
                   className="w-full"
                 >
                   <SidebarMenuButton className="flex h-[40px] px-5 rounded-3xl cursor-pointer dark:hover:bg-[#13151a]">
@@ -169,7 +173,12 @@ export default function LeftSidebar() {
         <div className="mt-4">
           <div className="flex w-full flex-col flex-wrap items-center gap-4 py-4">
             {!user?.wallet_address ? (
-              <CreateImportWalletBtn handleClick={handleWalletModal} />
+              <CreateImportWalletBtn
+                handleClick={
+                  // handleWalletModal
+                  () => setIsTokenLaunch(true)
+                }
+              />
             ) : (
               <div className="rounded-full px-4 py-2 border border-[#FFFFFF1A]">
                 {sliceMethod(user?.wallet_address)}
@@ -216,6 +225,10 @@ export default function LeftSidebar() {
         referralLink={`${host}${pathname}`}
         currentPageLink={`${host}${pathname}`}
         postTitle="Check out this awesome post on Block Face!"
+      />
+      <TokenLaunchedModal
+        open={isTokenLaunch}
+        onClose={() => setIsTokenLaunch(false)}
       />
     </Sidebar>
   );

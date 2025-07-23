@@ -102,7 +102,7 @@ export default function PostHeader({ post }: any) {
         <div className="flex flex-col gap-1">
           <div
             className="hover:underline dark:text-[#DDE5EE] font-semibold flex items-center gap-2 cursor-pointer flex-wrap break-all"
-            onClick={() => router.replace(`/${post?.userInfo?.id}`)}
+            // onClick={() => router.replace(`/${post?.userInfo?.id}`)}
           >
             {post?.userInfo?.username}{" "}
             <div className="text-sm text-shadow-[#17a34a] dark:text-[#00ff00] text-[#00ff00] font-normal">

@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export default function Home() {
   const { allPost, user } = useAuth();
-  // const [isTokenLaunch, setIsTokenLaunch] = useState<boolean>(true);
+  const [isTokenLaunch, setIsTokenLaunch] = useState<boolean>(true);
   return (
     <div>
       <SidebarProvider>
@@ -29,10 +29,10 @@ export default function Home() {
           {/* <RightSidebar /> */}
         </div>
       </SidebarProvider>
-      {/* <TokenLaunchedModal
+      <TokenLaunchedModal
         open={isTokenLaunch}
         onClose={() => setIsTokenLaunch(false)}
-      /> */}
+      />
     </div>
   );
 }
