@@ -1,5 +1,5 @@
 "use client";
-import LeaderboardPage from "@/components/common/leaderboard";
+import Leaderboard2 from "@/components/common/leaderboard2";
 import LeftSidebar from "@/components/layout/sidebar/left";
 import SideBarTriggerButton from "@/components/layout/sidebar/trigger-btn";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -12,7 +12,7 @@ export default function page() {
         <div className="flex lg:flex-row flex-col min-h-screen w-full overflow-x-hidden">
           <LeftSidebar />
           <SideBarTriggerButton />
-          <LeaderboardPage />
+          <Leaderboard2 />
         </div>
       </SidebarProvider>
     </div>

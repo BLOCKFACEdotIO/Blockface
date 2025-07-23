@@ -44,6 +44,11 @@ export default function LeftSidebar() {
 
   const items = [
     {
+      title: "Start",
+      url: "/roadmap",
+      icon: "/start-icon.svg",
+    },
+    {
       title: "Home",
       url: "/",
       icon: "/home-icon.svg",

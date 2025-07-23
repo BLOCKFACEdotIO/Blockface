@@ -16,7 +16,7 @@ export default function Leaderboard2() {
         </div>
 
         <div className="flex flex-col justify-center items-center mt-8 gap-5">
-          <FillButton className="rounded-[12px] text-lg font-bold text-white px-7">
+          <FillButton className="pump-glow">
             BUY $BLOCK
           </FillButton>
           <SocialHandle />

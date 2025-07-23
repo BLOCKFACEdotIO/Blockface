@@ -408,3 +408,33 @@ body {
 .character-count.limit-exceeded {
   color: #ef4444;
 }
+
+@keyframes pump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.pump-hover:hover {
+  animation: pump 1s ease-in-out infinite;
+}
+
+.pump-glow {
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem 1.75rem;
+  background-color: #32bd91; /* optional */
+  box-shadow: 0px 0px 5.4px rgba(50, 189, 145, 1);
+  transition: all 0.3s ease;
+}
+
+.pump-glow:hover {
+  animation: pump 1s ease-in-out infinite;
+  box-shadow: 0px 0px 12px rgba(50, 189, 145, 1); /* stronger glow */
+}

@@ -17,14 +17,6 @@ export default function TokenLaunchedModal({ open, onClose }: any) {
           Thanks for stopping by during our Token Launch hype! We are currently
           not accepting new signups while onboarding is paused.
         </div>
-        <div>
-          <div className="text-center text-base">
-            This is just the beginning.
-          </div>
-          <div className="text-center text-base">
-            Get a front row seat while the future of socialunfolds.
-          </div>
-        </div>
       </div>
     </Modal>
   );
