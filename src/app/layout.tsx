@@ -9,8 +9,8 @@ import { AuthProvider } from "@/providers/AuthProvider";
 import Footer from "@/components/common/Footer";
 
 export const metadata: Metadata = {
-  title: "Crypto Social",
-  description: "Crypto Social",
+  title: "Blockface",
+  description: "Blockface.io",
 };
 
 const jetBrainsMono = JetBrains_Mono({

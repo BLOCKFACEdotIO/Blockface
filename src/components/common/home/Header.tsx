@@ -42,8 +42,8 @@ export default function Header() {
         </div> */}
       </div>
       <div className="border-b flex items-center gap-4 justify-between p-2">
-        <div className="flex gap-2 text-[#999999] text-xs">
-          <span className="flex gap-1 items-center text-[#999999] dark:text-[#8C9FB7A0] hover:underline cursor-pointer">
+        <div className="flex gap-2 text-[#000000] dark:text-[#DDE5EE] text-xs">
+          <span className="flex gap-1 items-center text-[#000000] dark:text-[#DDE5EE] hover:underline cursor-pointer">
             <Wifi className="rotate-45" size={18} />
             Block For You Free
           </span>

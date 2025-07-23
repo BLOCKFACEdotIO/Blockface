@@ -55,35 +55,26 @@ export default function LeftSidebar() {
       title: "Communities",
       url: "#",
       icon: "/community-icon.svg",
-      type: "coming soon",
+      type: "Coming Soon!",
     },
-    ...(user
-      ? [
-          {
-            title: "Wallet",
-            url: "/wallet",
-            icon: "/wallet-icon.svg",
-          },
-        ]
-      : []),
-    ...(user?.username
-      ? [
-          {
-            title: "Profile",
-            url: `/${user?.id}`,
-            icon: "/profile-icon.svg",
-          },
-        ]
-      : []),
-    ...(user
-      ? [
-          {
-            title: "Settings",
-            url: `/settings`,
-            icon: SettingsIcon,
-          },
-        ]
-      : []),
+    {
+      title: "Wallet",
+      url: "/wallet",
+      icon: "/wallet-icon.svg",
+      type: "Please Login!",
+    },
+    {
+      title: "Profile",
+      url: `/${user?.id}`,
+      icon: "/profile-icon.svg",
+      type: "Please Login!",
+    },
+    {
+      title: "Settings",
+      url: `/settings`,
+      icon: SettingsIcon,
+      type: "Please Login!",
+    },
   ];
 
   const renderIcon = (icon: string | React.ComponentType) => {
@@ -148,8 +139,11 @@ export default function LeftSidebar() {
                   </span>
                 </SidebarMenuButton>
               </Link> */}
-              {item?.type === "coming soon" ? (
-                <div onClick={() => toast("Coming soon!")} className="w-full">
+              {(!user && item.type) || item.url.includes("#") ? (
+                <div
+                  onClick={() => toast(item?.type ?? "Coming Soon!")}
+                  className="w-full"
+                >
                   <SidebarMenuButton className="flex h-[40px] px-5 rounded-3xl cursor-pointer dark:hover:bg-[#13151a]">
                     {renderIcon(item.icon)}
                     <span className="text-[16px] font-[400] dark:text-[#FFFFFF80] text-[#00000080]">
