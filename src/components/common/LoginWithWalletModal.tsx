@@ -289,9 +289,9 @@ export default function LoginWithWalletModal({
             <TabsTrigger value="signin" className="cursor-pointer">
               Signin Wallet
             </TabsTrigger>
-            {/* <TabsTrigger value="signup" className="cursor-pointer">
+            <TabsTrigger value="signup" className="cursor-pointer">
               Signup Wallet
-            </TabsTrigger> */}
+            </TabsTrigger>
           </TabsList>
         )}
         <TabsContent value="signin">
