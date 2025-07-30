@@ -116,7 +116,7 @@ export default function PostHeader({ post }: any) {
                     }
                   )
                 : 0}
-              {post.userInfo?.id && post.userInfo?.id === 91 ? "📌" : ""}
+              {post.userInfo?.id && post.userInfo?.id === 122 ? "📌" : ""}
             </div>
           </div>
           <div className="text-sm dark:text-[#8C9FB7A0] text-[#999999] break-all">

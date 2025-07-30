@@ -93,7 +93,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   });
 
   const SOLANA_RPC_URL =
-    "https://go.getblock.io/4136d34f90a6488b84214ae26f0ed5f4";
+    "https://solana-rpc.publicnode.com";
 
   const fetchSolanaBalances = async (
     walletAddress: string,

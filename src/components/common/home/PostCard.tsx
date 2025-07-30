@@ -23,8 +23,8 @@ export default function PostCard({ allPost }: any) {
 
   // Sort so that posts with userInfo.id === 91 are on top
   const sortedPosts = [...(allPost || [])].sort((a, b) => {
-    if (a.userInfo?.id === 91) return -1;
-    if (b.userInfo?.id === 91) return 1;
+    if (a.userInfo?.id === 122) return -1;
+    if (b.userInfo?.id === 122) return 1;
     return 0;
   });
 
