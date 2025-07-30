@@ -14,7 +14,7 @@ export default function TokenLaunchedModal({ open, onClose }: any) {
           Welcome — Beta 1 Extended 🚀
         </div>
         <div className="text-center text-base opacity-60">
-          Thanks for joining us during the extended launch of Beta 1! We're building Beta 2 — so take this time to explore and get a feel for what Blockface is all about.
+          Thanks for joining us during the extended launch of Beta 1! We&apos;re building Beta 2 — so take this time to explore and get a feel for what Blockface is all about.
         </div>
       </div>
     </Modal>
