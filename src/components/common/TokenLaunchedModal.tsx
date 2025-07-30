@@ -11,11 +11,10 @@ export default function TokenLaunchedModal({ open, onClose }: any) {
       <div className="flex flex-col items-center gap-4 justify-center py-4">
         <div className="font-bold text-2xl">Blockface</div>
         <div className="font-bold text-xl text-center">
-          Access Limited — Beta Closed 🚧
+          Welcome — Beta 1 Extended 🚀
         </div>
         <div className="text-center text-base opacity-60">
-          Thanks for stopping by during our Token Launch hype! We are currently
-          not accepting new signups while onboarding is paused.
+          Thanks for joining us during the extended launch of Beta 1! We're building Beta 2 — so take this time to explore and get a feel for what Blockface is all about.
         </div>
       </div>
     </Modal>
