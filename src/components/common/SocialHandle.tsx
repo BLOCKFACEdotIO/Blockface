@@ -2,7 +2,6 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// Links to Social
 export default function SocialHandle() {
   const { theme } = useTheme();
   const socialData = [
