@@ -12,7 +12,7 @@ export default function SocialHandle() {
     },
     {
       img: theme === "dark" ? "/github-white.png" : "/github.png",
-      link: "https://github.com/BLOCKFACEdotIO/Blockface",
+      link: "https://github.com/BLOCKFACEdotIO/AboutBlockface",
     },
     {
       img: theme === "dark" ? "/gitbook-white.png" : "/gitbook.svg",
