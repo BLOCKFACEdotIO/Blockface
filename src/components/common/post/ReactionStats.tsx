@@ -9,6 +9,7 @@ import {
 import { useAuth } from "@/providers/AuthProvider";
 import {
   ChartNoAxesColumn,
+  Coins,
   Gem,
   MessageCircle,
   MessageSquareMore,
@@ -24,8 +25,12 @@ import FillButton from "../FillButton";
 import { motion, AnimatePresence } from "framer-motion";
 import ShareModal from "../ShareModal";
 import useUrl from "@/hooks/useUrl";
+import BlockSendModal from "../BlockSendModal";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 
 export default function ReactionStats({ post }: any) {
+  const { isConnected } = useAppKitAccount();
+  const { open: walletOpen } = useAppKit();
   const { user } = useAuth();
   const { host, pathname } = useUrl();
   const { mutate } = usePostLike();
@@ -36,6 +41,7 @@ export default function ReactionStats({ post }: any) {
   const [showCommentBox, setShowCommentBox] = useState<boolean>(false);
   const [commentValue, setCommentValue] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [tipModal, setTipModal] = useState<boolean>(false);
 
   const userLike = post?.postInfo?.find(
     (post: any) => String(post?.userInfo?.id) === String(user?.id)
@@ -125,6 +131,19 @@ export default function ReactionStats({ post }: any) {
     }
   };
 
+  const handleWalletConnect = () => {
+    try {
+      if (isConnected) {
+        setTipModal(true);
+      } else {
+        toast("Please connect your wallet");
+        walletOpen();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const list = [
     {
       no: getTotalLikes(post?.postInfo),
@@ -179,11 +198,10 @@ export default function ReactionStats({ post }: any) {
                 {emojis.map((emoji, idx) => (
                   <button
                     key={idx}
-                    className={`text-lg hover:bg-gray-100 dark:hover:bg-gray-700 rounded p-1 cursor-pointer ${
-                      selectedEmoji === emoji
-                        ? "bg-gray-200 dark:bg-gray-600"
-                        : ""
-                    }`}
+                    className={`text-lg hover:bg-gray-100 dark:hover:bg-gray-700 rounded p-1 cursor-pointer ${selectedEmoji === emoji
+                      ? "bg-gray-200 dark:bg-gray-600"
+                      : ""
+                      }`}
                     onClick={() => handleEmojiClick(emoji)}
                   >
                     {emoji}
@@ -232,6 +250,17 @@ export default function ReactionStats({ post }: any) {
           size={18}
           className="text-[#a3adb9] dark:hover:text-[#a3adb9] hover:text-[#000]"
           onClick={() => setIsOpen(!isOpen)}
+        />
+      ),
+      count: "",
+      action: "open",
+    },
+    {
+      icon: (
+        <Coins
+          size={18}
+          className="text-[#a3adb9] dark:hover:text-[#a3adb9] hover:text-[#000]"
+          onClick={() => handleWalletConnect()}
         />
       ),
       count: "",
@@ -306,6 +335,11 @@ export default function ReactionStats({ post }: any) {
         referralLink={`${host}${pathname}`}
         currentPageLink={`${host}${pathname}`}
         postTitle="Check out this awesome post on Block Face!"
+      />
+      <BlockSendModal
+        post={post}
+        open={tipModal}
+        onClose={() => setTipModal(false)}
       />
     </div>
   );
