@@ -198,10 +198,11 @@ export default function ReactionStats({ post }: any) {
                 {emojis.map((emoji, idx) => (
                   <button
                     key={idx}
-                    className={`text-lg hover:bg-gray-100 dark:hover:bg-gray-700 rounded p-1 cursor-pointer ${selectedEmoji === emoji
-                      ? "bg-gray-200 dark:bg-gray-600"
-                      : ""
-                      }`}
+                    className={`text-lg hover:bg-gray-100 dark:hover:bg-gray-700 rounded p-1 cursor-pointer ${
+                      selectedEmoji === emoji
+                        ? "bg-gray-200 dark:bg-gray-600"
+                        : ""
+                    }`}
                     onClick={() => handleEmojiClick(emoji)}
                   >
                     {emoji}
