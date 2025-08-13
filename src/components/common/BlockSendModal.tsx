@@ -18,7 +18,7 @@ import {
 } from "@reown/appkit-adapter-solana/react";
 import toast from "react-hot-toast";
 
-const TOKEN_MINT = new PublicKey(
+export const TOKEN_MINT = new PublicKey(
     "9JJdWb2y4K1V1aHZJeZdiyScfHWGW3cLF1XNGDd2pkin"
 );
 

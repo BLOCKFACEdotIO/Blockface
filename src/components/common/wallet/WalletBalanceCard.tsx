@@ -6,7 +6,11 @@ import Image from "next/image";
 import React from "react";
 import toast from "react-hot-toast";
 
-export default function WalletBalanceCard({ data }: any) {
+export default function WalletBalanceCard({
+  data,
+  blockBalance,
+  tokenDetails,
+}: any) {
   const { theme } = useTheme();
 
   async function handleCopy(text: string) {
@@ -28,7 +32,10 @@ export default function WalletBalanceCard({ data }: any) {
           <div className="text-lg text-shadow-[#17a34a] dark:text-[#00ff00] text-[#00ff00]">
             ~$
             {data?.assets?.totalBalanceUSD
-              ? Number(data?.assets?.totalBalanceUSD).toLocaleString("en-US", {
+              ? Number(
+                  data?.assets?.totalBalanceUSD +
+                    tokenDetails[0]?.priceUsd * blockBalance
+                ).toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })

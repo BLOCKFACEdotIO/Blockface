@@ -1,14 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-export default function CoreAssets({ data }: any) {
+export default function CoreAssets({ data, blockBalance, tokenDetails }: any) {
   const tokenData = [
     {
-      token: "Block",
-      symbol: "block",
-      logo: "/main-logo.png",
-      balance: "0.00",
-      valueUSD: "0.0 USD",
+      token: `${tokenDetails[0]?.baseToken?.name || ""}`,
+      symbol: `${tokenDetails[0]?.baseToken?.symbol || ""}`,
+      logo: `${tokenDetails[0]?.info?.imageUrl || ""}`,
+      balance: `${blockBalance || "0"}`,
+      valueUSD: `${tokenDetails[0]?.priceUsd * blockBalance || "0.00"} USD`,
     },
     {
       token: "USDC",
@@ -54,7 +54,7 @@ export default function CoreAssets({ data }: any) {
                   {item?.balance} {item?.symbol}
                 </div>
                 <div className="text-[#999999] dark:text-[#8c9fb7a0] flex text-xs justify-end">
-                  ~${item?.valueUSD}
+                  ~${item?.valueUSD || 0}
                 </div>
               </div>
             </div>
@@ -66,7 +66,9 @@ export default function CoreAssets({ data }: any) {
           </div>
           <div className="text-sm text-shadow-[#17a34a] dark:text-[#00ff00] text-[#00ff00]">
             ~$
-            {Number(totalBalanceUSD).toLocaleString("en-US", {
+            {Number(
+              totalBalanceUSD + tokenDetails[0]?.priceUsd * blockBalance
+            ).toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}{" "}

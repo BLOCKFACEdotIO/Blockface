@@ -64,6 +64,8 @@ const AuthContext = createContext<any>({
   setTotalAssetsValues: null,
 });
 
+export const SOLANA_RPC_URL = "https://solana-rpc.publicnode.com";
+
 // Auth provider component
 export function AuthProvider({ children }: { children: ReactNode }) {
   const { disconnect } = useDisconnect();
@@ -91,9 +93,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     queryKey: ["getAllPosts"],
     queryFn: async () => await getAllPosts(),
   });
-
-  const SOLANA_RPC_URL =
-    "https://solana-rpc.publicnode.com";
 
   const fetchSolanaBalances = async (
     walletAddress: string,
