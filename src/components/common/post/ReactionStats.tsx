@@ -256,17 +256,17 @@ export default function ReactionStats({ post }: any) {
       count: "",
       action: "open",
     },
-    // {
-    //   icon: (
-    //     <Coins
-    //       size={18}
-    //       className="text-[#a3adb9] dark:hover:text-[#a3adb9] hover:text-[#000]"
-    //       onClick={() => handleWalletConnect()}
-    //     />
-    //   ),
-    //   count: "",
-    //   action: "open",
-    // },
+    {
+      icon: (
+        <Coins
+          size={18}
+          className="text-[#a3adb9] dark:hover:text-[#a3adb9] hover:text-[#000]"
+          onClick={() => handleWalletConnect()}
+        />
+      ),
+      count: "",
+      action: "open",
+    },
   ];
   return (
     <div>

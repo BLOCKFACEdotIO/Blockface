@@ -17,6 +17,7 @@ import MainLoader from "@/components/common/MainLoader";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { isSolanaAddress, validateWalletAddress } from "@/lib/utils";
+import { TOKEN_MINT } from "@/components/common/BlockSendModal";
 
 export interface Coin {
   id: string;
@@ -62,6 +63,7 @@ const AuthContext = createContext<any>({
   loading: true,
   totalAssetsValues: null,
   setTotalAssetsValues: null,
+  blockTokenDetails: null,
 });
 
 export const SOLANA_RPC_URL = "https://solana-rpc.publicnode.com";
@@ -79,6 +81,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [allUsersAssets, setAllUsersAssets] = useState<any[]>([]);
   const [decodedUserId, setDecodedUserId] = useState<number | null>(null);
   const [totalAssetsValues, setTotalAssetsValues] = useState<number>(0);
+  const [blockTokenDetails, setBlockTokenDetails] = useState<any[]>([]);
 
   const {
     data: usersData,
@@ -93,6 +96,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     queryKey: ["getAllPosts"],
     queryFn: async () => await getAllPosts(),
   });
+
+  const getBlockTokenDetails = async () => {
+    try {
+      const response = await fetch(
+        `/api/get-token-data?chainId=solana&tokenAddress=${TOKEN_MINT}`
+      );
+      const data = await response.json();
+      setBlockTokenDetails(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const fetchSolanaBalances = async (
     walletAddress: string,
@@ -414,6 +429,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [usersData, isLoading, error]);
 
   useEffect(() => {
+    getBlockTokenDetails();
     const token = getCookie("token");
 
     if (!token) {
@@ -488,6 +504,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loading,
     totalAssetsValues,
     setTotalAssetsValues,
+    blockTokenDetails,
   };
 
   if (isLoading) {
