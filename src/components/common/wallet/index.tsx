@@ -16,7 +16,7 @@ import { getAssociatedTokenAddress } from "@solana/spl-token";
 import { Connection, PublicKey } from "@solana/web3.js";
 
 export default function WalletComp() {
-  const { user, allUsers } = useAuth();
+  const { user, allUsers, blockTokenDetails } = useAuth();
   const router = useRouter();
   const { host, pathname } = useUrl();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,7 +24,6 @@ export default function WalletComp() {
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [blockBalance, setBlockBalance] = useState<number>(0);
-  const [tokenDetails, setTokenDetails] = useState<any[]>([]);
 
   const handleSearch = (value: string = "") => {
     setSearch(value);
@@ -47,7 +46,7 @@ export default function WalletComp() {
       const connection = new Connection(SOLANA_RPC_URL, "confirmed");
       const userTokenAddress = await getAssociatedTokenAddress(
         TOKEN_MINT,
-        currentUser?.wallet_address?.publicKey
+        new PublicKey(currentUser?.wallet_address)
       );
       const tokenAccountInfo = await connection?.getTokenAccountBalance(
         userTokenAddress
@@ -60,30 +59,14 @@ export default function WalletComp() {
     }
   };
 
-  const getTokenDetails = async () => {
-    try {
-      const response = await fetch(
-        `/api/get-token-data?chainId=solana&tokenAddress=${TOKEN_MINT}`
-      );
-      const data = await response.json();
-      setTokenDetails(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    getBlockBalance();
     if (currentUser?.assets) {
-      getBlockBalance();
       setIsLoading(false);
     } else {
       setIsLoading(true);
     }
   }, [currentUser]);
-
-  useEffect(() => {
-    getTokenDetails();
-  }, []);
 
   if (isLoading) {
     return (
@@ -121,7 +104,7 @@ export default function WalletComp() {
           <WalletBalanceCard
             data={currentUser}
             blockBalance={blockBalance}
-            tokenDetails={tokenDetails}
+            tokenDetails={blockTokenDetails}
           />
         </div>
         <div className="p-4 flex justify-between gap-4 w-full max-md:flex-col">
@@ -145,7 +128,7 @@ export default function WalletComp() {
                 {currentUser?.assets
                   ? Number(
                       currentUser?.assets?.totalBalanceUSD +
-                        tokenDetails[0]?.priceUsd * blockBalance
+                        blockTokenDetails[0]?.priceUsd * blockBalance
                     ).toLocaleString("en-US", {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
@@ -163,7 +146,7 @@ export default function WalletComp() {
         <CoreAssets
           data={currentUser}
           blockBalance={blockBalance}
-          tokenDetails={tokenDetails}
+          tokenDetails={blockTokenDetails}
         />
       </div>
       <ShareModal
