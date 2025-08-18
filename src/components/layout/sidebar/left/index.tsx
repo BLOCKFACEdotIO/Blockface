@@ -19,7 +19,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import useUrl from "@/hooks/useUrl";
-import { cn, sliceMethod } from "@/lib/utils";
+import { cn, dexRoute, sliceMethod } from "@/lib/utils";
 import { useAuth } from "@/providers/AuthProvider";
 import { Moon, Sun, Upload } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -186,7 +186,7 @@ export default function LeftSidebar() {
             )}
             <div className="flex flex-wrap justify-center gap-4 flex-col w-full">
               <Link
-                href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                href={dexRoute}
                 target="_blank"
               >
                 <BuyTokenBtn clasName="min-w-full">

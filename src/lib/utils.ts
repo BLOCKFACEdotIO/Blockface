@@ -287,3 +287,5 @@ export const useCommentUnLike = () => {
     },
   });
 };
+
+export const dexRoute = "https://pumpkin.fun/token/68813faf054436510eb4a514";

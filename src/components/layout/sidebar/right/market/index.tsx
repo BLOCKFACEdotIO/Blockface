@@ -4,7 +4,7 @@ import CreateImportWalletBtn from "@/components/common/create-import-wallet-btn"
 import CreateImportWalletModal from "@/components/common/CreateImportWalletModal";
 import WalletButton from "@/components/common/WalletButton";
 import { BuyTokenIcon } from "@/components/svg/buy-token";
-import { sliceMethod } from "@/lib/utils";
+import { dexRoute, sliceMethod } from "@/lib/utils";
 import { useAuth } from "@/providers/AuthProvider";
 import { useAppKitAccount } from "@reown/appkit/react";
 import { RefreshCcw } from "lucide-react";
@@ -96,7 +96,7 @@ export default function Market() {
             <div className="mt-2 flex items-center justify-center gap-2 px-4">
               <BuyTokenBtn clasName="!h-fit py-1 text-xs !min-w-fit">
                 <Link
-                  href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                  href={dexRoute}
                   target="_blank"
                 >
                   Buy $BLOCK
@@ -123,7 +123,7 @@ export default function Market() {
               <Link target="_blank" href="https://openfund.com/trade/FOCUS">
                 <BuyTokenBtn>
                   <Link
-                    href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+                    href={dexRoute}
                     target="_blank"
                   >
                     <BuyTokenIcon /> Buy $BLOCK

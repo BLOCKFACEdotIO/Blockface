@@ -17,6 +17,7 @@ import {
   type Provider,
 } from "@reown/appkit-adapter-solana/react";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 export const TOKEN_MINT = new PublicKey(
   "9JJdWb2y4K1V1aHZJeZdiyScfHWGW3cLF1XNGDd2pkin"
@@ -86,9 +87,20 @@ export default function BlockSendModal({
       tx.recentBlockhash = blockhash;
 
       const signedTx = await walletProvider.signTransaction(tx);
-      await connection.sendRawTransaction(signedTx.serialize());
+      const sig = await connection.sendRawTransaction(signedTx.serialize());
 
-      toast.success(`Successfully sent ${amount} $BLOCK`);
+      toast.success(
+        <span className="flex flex-col">
+          Transaction Successfully sent: {amount} $BLOCK
+          <a
+            href={`https://solscan.io/tx/${sig}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View it on Solscan
+          </a>
+        </span>
+      );
       getBlockBalance();
       onClose();
     } catch (error: any) {

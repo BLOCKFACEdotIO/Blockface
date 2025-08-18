@@ -3,6 +3,7 @@ import FillButton from "../FillButton";
 import SocialHandle from "../SocialHandle";
 import Roadmap from "../Roadmap";
 import Link from "next/link";
+import { dexRoute } from "@/lib/utils";
 
 export default function Leaderboard2() {
   return (
@@ -19,7 +20,7 @@ export default function Leaderboard2() {
         <div className="flex flex-col justify-center items-center mt-8 gap-5">
           <FillButton className="pump-glow">
             <Link
-              href={"https://pumpkin.fun/token/68813faf054436510eb4a514"}
+              href={dexRoute}
               target="_blank"
             >
               BUY $BLOCK
