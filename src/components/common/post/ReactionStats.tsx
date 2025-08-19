@@ -9,12 +9,7 @@ import {
 import { useAuth } from "@/providers/AuthProvider";
 import {
   ChartNoAxesColumn,
-  Coins,
-  Gem,
-  MessageCircle,
   MessageSquareMore,
-  Quote,
-  Repeat2,
   Smile,
   Upload,
 } from "lucide-react";
