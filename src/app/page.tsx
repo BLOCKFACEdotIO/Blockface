@@ -10,6 +10,7 @@ import SideBarTriggerButton from "@/components/layout/sidebar/trigger-btn";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useAuth } from "@/providers/AuthProvider";
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   const { allPost, user } = useAuth();
@@ -33,6 +34,7 @@ export default function Home() {
         open={isTokenLaunch}
         onClose={() => setIsTokenLaunch(false)}
       />
+      <Analytics />
     </div>
   );
 }
