@@ -27,7 +27,7 @@ export default function Home() {
             <Header />
             <PostCard allPost={allPost} />
           </div>
-          {/* <RightSidebar /> */}
+          <RightSidebar />
         </div>
       </SidebarProvider>
       <TokenLaunchedModal
