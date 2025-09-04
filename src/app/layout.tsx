@@ -7,6 +7,8 @@ import { AppKitProvider } from "@/context/WalletContext";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import Footer from "@/components/common/Footer";
+import GoogleAdsense from "./GoogleAdsense";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Blockface",
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${jetBrainsMono.variable} suppressHydrationWarning`}>
+        <GoogleAdsense pId="pub-3742696288532239" />
         <QueryProvider>
           <AuthProvider>
             <ThemeProvider attribute="class" enableSystem={false}>
@@ -40,6 +43,9 @@ export default function RootLayout({
             </ThemeProvider>
           </AuthProvider>
         </QueryProvider>
+        <Script id="ads-init" strategy="afterInteractive">
+          {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+        </Script>
       </body>
     </html>
   );

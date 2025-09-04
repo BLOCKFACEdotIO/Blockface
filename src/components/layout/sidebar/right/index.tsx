@@ -13,7 +13,7 @@ export default function RightSidebar() {
       side="right"
       className="hidden max-w-[280px] justify-start border-l lg:flex dark:bg-[#1d1c34] bg-[#FFFFFF] h-screen overflow-y-auto slim-scrollbar sticky top-0"
     >
-      <p className="text-[12px] opacity-[0.7] mt-1 ml-1">Advertisement</p>
+      {/* <p className="text-[12px] opacity-[0.7] mt-1 ml-1">Advertisement</p>
       <Script
         id="adsbygoogle-init"
         strategy="afterInteractive"
@@ -23,7 +23,7 @@ export default function RightSidebar() {
       <AdBanner />
       <Script id="adsbygoogle-push" strategy="afterInteractive">
         {`(adsbygoogle = window.adsbygoogle || []).push({});`}
-      </Script>
+      </Script> */}
       {/* <SidebarContent className="dark:bg-[#1d1c34] bg-[#FFFFFF]">
         <div>
           <div className="p-4">
