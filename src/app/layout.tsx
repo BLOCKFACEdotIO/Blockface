@@ -7,7 +7,7 @@ import { AppKitProvider } from "@/context/WalletContext";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import Footer from "@/components/common/Footer";
-import GoogleAdsense from "./GoogleAdsense";
+import GoogleAdsense from "@/components/Ads/GoogleAdsense";
 import Script from "next/script";
 
 export const metadata: Metadata = {
