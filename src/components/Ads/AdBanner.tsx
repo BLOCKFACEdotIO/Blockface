@@ -1,4 +1,3 @@
-// components/AdBanner.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -21,7 +20,7 @@ export default function AdBanner() {
       className="adsbygoogle"
       style={{ display: "block" }}
       data-ad-client="ca-pub-3742696288532239"
-      data-ad-slot=""
+      data-ad-slot="9538034285"
       data-ad-format="auto"
       data-full-width-responsive="true"
       data-adtest="off"

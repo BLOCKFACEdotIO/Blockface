@@ -1,4 +1,3 @@
-// app/GoogleAdsense.tsx
 import Script from "next/script";
 
 type Props = {
